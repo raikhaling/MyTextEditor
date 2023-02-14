@@ -18,6 +18,12 @@ public class TextEditor extends JFrame implements ActionListener{
 	JButton fontColorButton;
 	JComboBox fontBox;
 	
+	JMenuBar menuBar;
+	JMenu fileMenu;
+	JMenuItem openItem;
+	JMenuItem saveItem;
+	JMenuItem exitItem;
+	
 	TextEditor(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("My Text Editor");
@@ -60,6 +66,26 @@ public class TextEditor extends JFrame implements ActionListener{
 		fontBox.addActionListener(this);
 		fontBox.setSelectedItem("Arial");
 		
+		//---------menuBar-------
+		menuBar = new JMenuBar();
+		fileMenu = new JMenu("File");
+		openItem  = new JMenuItem("Open");
+		saveItem  = new JMenuItem("Save");
+		exitItem  = new JMenuItem("Exit");
+		
+		openItem.addActionListener(this);
+		saveItem.addActionListener(this);
+		exitItem.addActionListener(this);
+		
+		fileMenu.add(openItem);
+		fileMenu.add(saveItem);
+		fileMenu.add(exitItem);
+		
+		menuBar.add(fileMenu);
+		
+		//---------/menuBar-------
+	//	this.add(menuBar);
+		this.setJMenuBar(menuBar);
 		this.add(fontLabel);
 		this.add(fontSizeSpinner); 
 		this.add(fontColorButton);
@@ -79,6 +105,15 @@ public class TextEditor extends JFrame implements ActionListener{
 		}		
 		if(e.getSource() == fontBox) {
 			textArea.setFont(new Font((String) fontBox.getSelectedItem(), Font.PLAIN, textArea.getFont().getSize()));
+		}
+		if(e.getSource() == openItem) {
+			
+		}
+		if(e.getSource() == saveItem) {
+			
+		}
+		if(e.getSource() == exitItem) {
+			
 		}
 	}
 
